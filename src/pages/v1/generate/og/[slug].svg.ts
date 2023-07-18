@@ -1,18 +1,18 @@
-import type { APIRoute } from 'astro';
-import { getCollection } from 'astro:content';
-import satori from 'satori';
-import { html as toReactElement } from 'satori-html';
-import { Config } from '@eliancodes/brutal-ui';
+import type { APIRoute } from "astro";
+import { getCollection } from "astro:content";
+import satori from "satori";
+import { html as toReactElement } from "satori-html";
+import { Config } from "@eliancodes/brutal-ui";
 
 const fontFile = await fetch(
-  'https://og-playground.vercel.app/inter-latin-ext-700-normal.woff'
+  "https://og-playground.vercel.app/inter-latin-ext-700-normal.woff",
 );
 const fontData: ArrayBuffer = await fontFile.arrayBuffer();
 
 const height = 630;
 const width = 1200;
 
-const posts = await getCollection('blog');
+const posts = await getCollection("blog");
 
 export function getStaticPaths() {
   return posts.map((post) => ({
@@ -24,8 +24,9 @@ export function getStaticPaths() {
 export const get: APIRoute = async ({ params, props }) => {
   const bgColor =
     Config.colors[Math.floor(Math.random() * Config.colors.length)];
-  const title = props.title ?? 'Brutal, a theme for Astro.';
-  const link = params.slug ?? 'https://brutal.elian.codes';
+
+  const title = props.title ?? "Brutal, a theme for Astro.";
+  const link = params.slug;
 
   const html = toReactElement(`
   <div style="background-color: ${bgColor}; display: flex; flex-direction: column; height: 100%; padding: 3rem; width: 100%">
@@ -35,8 +36,8 @@ export const get: APIRoute = async ({ params, props }) => {
           <p style="font-size: 48px;">${title}</p>
         </div>
         <div style="display: flex; justify-content: space-between; align-items: baseline">
-          <p style="font-size: 32px">${link}</p>
-          <img src="https://www.elian.codes/_astro/elian_ZJca6K.jpg" width="200px" height="200px" style="border: 3px solid black; border-radius: 0.5rem;" />
+          <p style="font-size: 32px">https://angelnext.dev/blog/${link}</p>
+          <img src="https://i.imgur.com/ldJWva3.png" width="200px" height="200px" style="border: 3px solid black; border-radius: 0.5rem;" />
         </div>
       </div>
     </div>
@@ -46,9 +47,9 @@ export const get: APIRoute = async ({ params, props }) => {
   const svg = await satori(html, {
     fonts: [
       {
-        name: 'Inter Latin',
+        name: "Inter Latin",
         data: fontData,
-        style: 'normal',
+        style: "normal",
       },
     ],
     height,
@@ -57,7 +58,7 @@ export const get: APIRoute = async ({ params, props }) => {
 
   return new Response(svg, {
     headers: {
-      'content-type': 'image/svg',
+      "content-type": "image/svg",
     },
   });
 };

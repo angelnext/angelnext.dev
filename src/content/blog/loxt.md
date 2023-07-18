@@ -1,6 +1,6 @@
 ---
 title: Loxt
-pubDate: 2023-07-14
+pubDate: 2023-07-15
 author: "Ángel González Vázquez"
 tags:
   - project

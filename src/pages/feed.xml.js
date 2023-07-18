@@ -17,5 +17,5 @@ export async function get(context) {
     })),
     customData: '<language>en-us</language>',
     canonicalUrl: 'https://angelnext.dev/',
-  }); 
+  });
 }

@@ -1,6 +1,6 @@
-## Brutal Theme ##
+## AngelNext ##
 
-All development & Content by Elian Van Cutsem
+All development & Content by Ángel González Vázquez
 
-- email: hello@elian.codes
-- website: www.elian.codes
+- email: contact@angelnext.dev
+- website: https://angelnext.dev

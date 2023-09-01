@@ -1,89 +1,78 @@
 ---
-import Layout from "@layouts/Default.astro";
-import RecentBlogPosts from "@components/generic/RecentBlogPosts.astro";
-import MobileSocials from "@components/home/MobileSocials.astro";
-import { Button } from "@eliancodes/brutal-ui";
-import { Card } from "@eliancodes/brutal-ui";
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+).slice(0, 2)
 ---
 
-<Layout
-  title="Home"
-  pageTitle="AngelNext | Home"
-  description="I am a Full Stack Developer that loves open source! I love coding open-source solutions to every-day problems."
->
-  <main class="bg-gray p-6">
-    <MobileSocials />
-    <section id="about" class="grid md:grid-cols-8 gap-8 mt-4">
-      <h2 class="hidden">About Brutal</h2>
-      <div class="md:col-span-6">
-        <Card color="#22d3ee">
-          <div class="flex flex-col justify-between items-start gap-4">
-            <p class="mt-4 outfit text-2xl md:text-5xl lg:text-7xl">
-              Lead Developer <a
-                target="_blank"
-                class="underline underline-blue"
-                href="https://github.com/pyritebot">@Pyrite</a
-              >
-            </p>
-            <p class="mt-2 outfit text-xl md:text-3xl lg:text-5xl">
-              Student and Programmer
-            </p>
-            <p class="sanchez mt-4 mb-8 text-lg md:text-xl lg:text-3xl">
-              Located in Spain
-            </p>
-            <Button target={"_self"} href="/blog/">
-              Check out the blog &rarr;
-            </Button>
-          </div>
-        </Card>
-      </div>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+    <style>
+      a {
+        text-decoration: none;
+      }
+    </style>
+    
+		<Header title={SITE_TITLE} />
+		<main>
+			<h1 id="title"></h1>
+			<p>
+				Welcome to <a href="/">my page</a>! 
+			</p>
+			<p>
+			  You can read <a href="/blog/about">about me</a> or read some <a href="/blog">blog posts</a>
+			</p>
+			<p>
+				Have fun! If you want to contact me for business, you can do so sending an <a href="mailto:contact@angelnext.dev">email</a> or talk to me on <a href="https://discord.com/users/807705107852558386">Discord</a> for anything else.
+			</p>
+			<p>
+			  Here you have my latest blog posts:	
+			</p>
+      <br>
+      <hr>
+      <br>
+      <section>
+				<ul>
+					{
+						posts.map((post) => (
+							<li>
+								<a href={`/blog/${post.slug}/`}>
+									<img width={720} height={360} src={post.data.heroImage} alt="" />
+									<h4 class="title">{post.data.title}</h4>
+									<p class="date">
+										<FormattedDate date={post.data.pubDate} />
+									</p>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
 
-      <div class="md:col-span-2">
-        <Card color="#a3e635">
-          <h2 class="text-2xl md:text-4xl lg:text-6xl mb-4 dm-serif">
-            Contact Me!
-          </h2>
-          <p class="poppins mb-10">
-            You can always contact me through Discord just sending me a Message
-            Request, but if you needed another contact option you can
-          </p>
-          <Button target={"_self"} href="mailto:contact@angelnext.dev">
-            Email me &rarr;
-          </Button>
-        </Card>
-      </div>
-    </section>
-    <section class="grid md:grid-cols-2 gap-8 mt-4">
-      <Card color="#facc15">
-        <h2 class="text-2xl md:text-4xl lg:text-6xl mb-4 dm-serif">Projects</h2>
-        <p class="poppins mb-4">
-          I have a ton of open source projects! This list will be expanded with
-          time, since I'll have more time to work on projects, but I still find
-          some time to work on some of my projects.
-        </p>
-        <Button target={"_self"} href="/blog/tags/project">
-          Check out all of my projects! &rarr;
-        </Button>
-      </Card>
+		</main>
 
-      <Card color="#fb923c">
-        <h2 class="text-2xl md:text-4xl lg:text-6xl mb-4 dm-serif">
-          Who am I?
-        </h2>
-        <p class="poppins">
-          Hi, my name is Angel, I am a TypeScript developer, My journey in the
-          web world started in the quarantine, without anything else to do I
-          wrote my first lines of code in Python, I kept digging, and made my
-          first webpage. From that moment, my fate was already sealed, I loved
-          programming. <br /><br /> I started creating some open-source projects,
-          like loxt, or spybot (deprecated), and I'm currently working in <a
-            target="_blank"
-            class="underline underline-yellow"
-            href="https://github.com/pyritebot">@Pyrite</a
-          >.
-        </p>
-      </Card>
-    </section>
-    <RecentBlogPosts />
-  </main>
-</Layout>
+    <script>
+      const text = "Hello, World!"
+
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+
+      for (const letter of text) {
+        document.querySelector('#title')!.innerText += letter; 
+        await sleep(40);
+      }
+    </script>
+		<Footer />
+	</body>
+</html>

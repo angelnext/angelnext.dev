@@ -1,6 +1,0 @@
-## AngelNext ##
-
-All development & Content by Ángel González Vázquez
-
-- email: contact@angelnext.dev
-- website: https://angelnext.dev

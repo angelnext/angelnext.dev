@@ -21,6 +21,22 @@ const posts = (await getCollection('blog')).sort(
       a {
         text-decoration: none;
       }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 3em;
+        list-style-type: none;
+      } 
+
+      ul li {
+				width: calc(90% - 1rem);
+			}
+
+			ul li * {
+				text-decoration: none;
+				transition: 0.2s ease;
+			}
     </style>
     
 		<Header title={SITE_TITLE} />

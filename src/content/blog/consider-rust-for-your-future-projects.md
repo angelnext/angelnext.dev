@@ -1,7 +1,7 @@
 ---
 title: 'Why I am using Rust for my future projects (and you should too)' 
 description: "In this blog post, I will explain why Rust has become the best choice for me, and why should consider Rust for your next project"
-pubDate: 'Sep 01 2023'
+pubDate: 'Sep 02 2023'
 heroImage: 'https://i.imgur.com/3am0vGY.png'
 ---
 
@@ -18,7 +18,7 @@ So, one of my hobbies is doing Discord bots, they are cool, simple projects that
 
 #### RUST!!!!
 
-So, one day I researched alternate solutions for Discord bots, I had used discord.py before, but I didn't like it very much, then you also had discord.php, but I have close to zero experience with PHP, found a promising library for go, but not a single piece of good documentation. Then I finally stumbled upon `serenity-rs`, it looked very promising, the docs where not bad at all, and I had used Rust once or twice before, I also decided to go with `poise`, a framework to simplify your Discord bot. In 10 minutes I already had a functioning bot with prefix commands and slash commands, logging, and more. But the advantages didn't stop there, the rust-analyzer LSP helped me fix all errors before running the bot, I had virtually no runtime errors, and this plus Rust's amazing Option and Result structs, made me have a 100x better Developer Experience with Rust than I ever had with JavaScript, which is a language I've been using for years. Not to mention it was 🚀 BLAZINGLY FAST 🚀
+So, one day I researched alternate solutions for Discord bots, I had used discord.py before, but I didn't like it very much, then you also had discord.php, but I have close to zero experience with PHP, found a promising library for go, but not a single piece of good documentation. Then I finally stumbled upon `serenity-rs`, it looked very promising, the docs where not bad at all, and I had used Rust once or twice before, I also decided to go with `poise`, a framework to simplify your Discord bot. In 10 minutes I already had a functioning bot with prefix commands and slash commands, logging, and more. But the advantages didn't stop there, the rust-analyzer LSP helped me fix all errors before running the bot, I had virtually no runtime errors, and this plus Rust's amazing Option and Result structs, made me have a 100x better Developer Experience with Rust than I ever had with JavaScript, which is a language I've been using for years. Not to mention it was 🚀 **BLAZINGLY FAST** 🚀
 
 #### So, Rust for everything?
 No, not at all, Rust is not for all projects, but it is amazing for CLI tools, low level programming, and performance critical code.

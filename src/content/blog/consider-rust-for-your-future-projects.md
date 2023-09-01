@@ -2,7 +2,7 @@
 title: 'Why I am using Rust for my future projects (and you should too)' 
 description: "In this blog post, I will explain why Rust has become the best choice for me, and why should consider Rust for your next project"
 pubDate: 'Sep 01 2023'
-heroImage: '/blog-placeholder-2.jpg'
+heroImage: 'https://i.imgur.com/3am0vGY.png'
 ---
 
 In this blog post, I will explain why Rust has become the best choice for me, and why should consider Rust for your next project.

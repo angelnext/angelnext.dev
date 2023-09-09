@@ -11,7 +11,7 @@ Here you'll find my projects and blog posts!
 │   ├── content/
 │   ├── layouts/
 │   └── pages/
-├── astro.config.mjs
+├── astro.config.ts
 ├── README.md
 ├── package.json
 └── tsconfig.json

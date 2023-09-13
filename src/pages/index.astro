@@ -22,6 +22,11 @@ const posts = (await getCollection('blog')).sort(
         text-decoration: none;
       }
 
+      h1 {
+        text-align: center;
+        padding: 20px 0;
+      }
+
       ul {
         display: flex;
         flex-direction: column;
@@ -41,7 +46,7 @@ const posts = (await getCollection('blog')).sort(
     
 		<Header title={SITE_TITLE} />
 		<main>
-			<h1 id="title"></h1>
+			<h1>Hello, World!</h1>
 			<p>
 				Welcome to <a href="/">my page</a>! 
 			</p>
@@ -76,19 +81,6 @@ const posts = (await getCollection('blog')).sort(
 			</section>
 
 		</main>
-
-    <script>
-      const text = "Hello, World!"
-
-      function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-      }
-
-      for (const letter of text) {
-        document.querySelector('#title')!.innerText += letter; 
-        await sleep(40);
-      }
-    </script>
 		<Footer />
 	</body>
 </html>

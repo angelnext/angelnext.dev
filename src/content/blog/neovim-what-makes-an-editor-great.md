@@ -1,6 +1,6 @@
 ---
 title: 'Neovim, what makes an editor great' 
-description: "In this blog post, I will explain why Rust has become the best choice for me, and why should consider Rust for your next project"
+description: " In this blogspot, I will tell you why I (personally) think neovim is the best editor, and how to start your nvim journey."
 pubDate: 'Sep 13 2023'
 heroImage: 'https://i.imgur.com/gbNYmiQ.png'
 ---

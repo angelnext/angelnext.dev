@@ -28,6 +28,9 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
+<!-- Sitemap -->
+<link rel="sitemap" href="/sitemap-index.xml">
+
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
@@ -35,12 +38,13 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 
 <ViewTransitions />
 
-<!-- Open Graph / Facebook -->
+<!-- Open Graph  -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image:alt" content={description} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
@@ -48,3 +52,5 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:image:alt" content={description} />
+

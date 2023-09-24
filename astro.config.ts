@@ -30,6 +30,13 @@ export default defineConfig({
           purpose: "maskable",
         }],
       },
+      workbox: {
+        globDirectory: "dist",
+        globPatterns: [
+          "**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico,html}",
+        ],
+        navigateFallback: null,
+      },
     }),
     prefetch(),
   ],

@@ -35,7 +35,7 @@ export default defineConfig({
         globPatterns: [
           "**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico,html}",
         ],
-        navigateFallback: null,
+        navigateFallback: "/404",
       },
     }),
     prefetch(),

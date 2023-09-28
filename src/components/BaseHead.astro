@@ -3,16 +3,17 @@
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
 import { ViewTransitions } from 'astro:transitions';
+import banner from "../assets/banner.webp"
 
 interface Props {
 	title: string;
 	description: string;
-	image?: string | undefined;
+	image?: ImageMetadata | undefined;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/assets/banner.png' } = Astro.props;
+const { title, description, image = banner } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -44,7 +45,7 @@ const { title, description, image = '/assets/banner.png' } = Astro.props;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={image.src} />
 <meta property="og:image:alt" content={description} />
 
 <!-- Twitter -->
@@ -52,5 +53,5 @@ const { title, description, image = '/assets/banner.png' } = Astro.props;
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:image" content={image.src} />
 <meta property="twitter:image:alt" content={description} />

@@ -2,7 +2,7 @@
 title: 'Who am I?'
 description: 'Welcome to my blog, I am a programmer and Linux enthusiast'
 pubDate: 'Sep 01 2023'
-heroImage: '/assets/banner.png' 
+heroImage: '../../assets/banner.webp' 
 ---
 
 Hey, Welcome to my blog, I am a programmer and Linux enthusiast, I love working on open-source software.

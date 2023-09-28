@@ -1,6 +1,4 @@
 ---
-import { pwaInfo } from 'virtual:pwa-info';
-
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
@@ -14,7 +12,7 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const { title, description, image = '/assets/banner.png' } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -56,6 +54,3 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 <meta property="twitter:image:alt" content={description} />
-
-<script src="/src/pwa.ts"></script>
-{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }

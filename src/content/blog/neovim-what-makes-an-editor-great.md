@@ -2,7 +2,7 @@
 title: 'Neovim, what makes an editor great' 
 description: " In this blogspot, I will tell you why I (personally) think neovim is the best editor, and how to start your nvim journey."
 pubDate: 'Sep 13 2023'
-heroImage: 'https://i.imgur.com/gbNYmiQ.png'
+heroImage: '/assets/neovim.png'
 ---
 
 Hello, in this blogspot, I will tell you why I (personally) think neovim is the best editor, and how to start your nvim journey.

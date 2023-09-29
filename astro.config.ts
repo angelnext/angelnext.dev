@@ -6,9 +6,5 @@ import prefetch from "@astrojs/prefetch";
 // https://astro.build/config
 export default defineConfig({
   site: "https://angelnext.dev/",
-  integrations: [
-    mdx(),
-    sitemap(),
-    prefetch(),
-  ],
+  integrations: [mdx(), sitemap(), prefetch()],
 });

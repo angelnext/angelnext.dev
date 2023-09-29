@@ -1,23 +1,23 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { Image } from 'astro:assets';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import { getCollection } from 'astro:content';
-import FormattedDate from '../components/FormattedDate.astro';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getCollection } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-).slice(0, 2)
+const posts = (await getCollection("blog"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 2);
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
     <style>
       a {
         text-decoration: none;
@@ -33,54 +33,61 @@ const posts = (await getCollection('blog')).sort(
         flex-direction: column;
         gap: 3em;
         list-style-type: none;
-      } 
+      }
 
       ul li {
-				width: calc(90% - 1rem);
-			}
+        width: calc(90% - 1rem);
+      }
 
-			ul li * {
-				text-decoration: none;
-			}
+      ul li * {
+        text-decoration: none;
+      }
     </style>
 
-		<Header title={SITE_TITLE} />
-		<main>
-			<h1>Hello, World!</h1>
-			<p>
-				Welcome to <a href="/">my page</a>! 
-			</p>
-			<p>
-			  You can read <a href="/blog/about">about me</a> or read some <a href="/blog">blog posts</a>
-			</p>
-			<p>
-				Have fun! If you want to contact me for business, you can do so sending an <a href="mailto:contact@angelnext.dev">email</a> or talk to me on <a href="https://discord.com/users/807705107852558386">Discord</a> for anything else.
-			</p>
-			<p>
-			  Here you have my latest blog posts:	
-			</p>
-      <br>
-      <hr>
-      <br>
+    <Header title={SITE_TITLE} />
+    <main>
+      <h1>Hello, World!</h1>
+      <p>
+        Welcome to <a href="/">my page</a>!
+      </p>
+      <p>
+        You can read <a href="/blog/about">about me</a> or read some <a
+          href="/blog">blog posts</a
+        >
+      </p>
+      <p>
+        Have fun! If you want to contact me for business, you can do so sending
+        an <a href="mailto:contact@angelnext.dev">email</a> or talk to me on <a
+          href="https://discord.com/users/807705107852558386">Discord</a
+        > for anything else.
+      </p>
+      <p>Here you have my latest blog posts:</p>
+      <br />
+      <hr />
+      <br />
       <section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.slug}/`}>
-								  <Image width={720} height={360} src={post.data.heroImage} alt={post.data.title} />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-
-		</main>
-		<Footer />
-	</body>
+        <ul>
+          {
+            posts.map((post) => (
+              <li>
+                <a href={`/blog/${post.slug}/`}>
+                  <Image
+                    width={720}
+                    height={360}
+                    src={post.data.heroImage}
+                    alt={post.data.title}
+                  />
+                  <h4 class="title">{post.data.title}</h4>
+                  <p class="date">
+                    <FormattedDate date={post.data.pubDate} />
+                  </p>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>

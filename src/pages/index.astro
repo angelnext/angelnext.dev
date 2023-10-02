@@ -60,8 +60,8 @@ const posts = (await getCollection("blog"))
         an <a
           href="mailto:%63%6f%6e%74%61%63%74%40%61%6e%67%65%6c%6e%65%78%74%2e%64%65%76"
           >email</a
-        > or talk to me on <a href="https://discord.com/users/807705107852558386"
-          >Discord</a
+        > or talk to me on <a
+          href="https://discord.com/users/807705107852558386">Discord</a
         > for anything else.
       </p>
       <p>Here you have my latest blog posts:</p>
@@ -80,7 +80,7 @@ const posts = (await getCollection("blog"))
                     src={post.data.heroImage}
                     alt={post.data.title}
                   />
-                  <h4 class="title">{post.data.title}</h4>
+                  <h2 class="title">{post.data.title}</h2>
                   <p class="date">
                     <FormattedDate date={post.data.pubDate} />
                   </p>

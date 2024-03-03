@@ -1,0 +1,51 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Head from "@/components/Head.astro";
+import Title from "@/components/Title.astro";
+import { Image } from "astro:assets";
+import rubiks from "/src/assets/img/rubiks.png";
+import chord from "/src/assets/img/chord.png";
+import blur from "/src/assets/img/bg.svg";
+import PortfolioCard from "@/components/PortfolioCard.astro";
+
+let title = Astro.props;
+---
+
+<Head title="Portfolio" />
+<Layout class="relative" title="Portfolio">
+  <div class="grid mt-[11.1111%] content-center">
+    <Title text="Portfolio" />
+  </div>
+  <section class="grid px-3 lg:px-0 content-start text-white">
+    <Image
+      src={blur}
+      class="fixed blur-[100px] top-0 bottom-0 left-0 right-0 m-auto h-full w-full object-cover object-center z-[-1]"
+      alt="blur background"
+    />
+    <div class="grid grid-rows-auto content-center gap-5 pb-10 mt-[11.1111%]">
+      <PortfolioCard
+        img={rubiks}
+        alt={title}
+        site="https://github.com/rubiksjs/rubiks"
+        title="Rubiks.js"
+        badgeProps={[{ text: "JavaScript" }]}
+        description={`
+				Rubiks is a 0 dependency extendable logging library for modern applications.
+				`}
+        badgeLinkProps={[]}
+      />
+
+      <PortfolioCard
+        img={chord}
+        alt={title}
+        site="https://github.com/chordtemplate/chord"
+        title="Chord (discord.js template)"
+        badgeProps={[{ text: "TypeScript" }, { text: "JavaScript" }]}
+        badgeLinkProps={[]}
+        description={`
+			A simple complete discord.js bot template with commands and events
+			`}
+      />
+    </div>
+  </section>
+</Layout>

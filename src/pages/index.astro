@@ -1,96 +1,72 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { Image } from "astro:assets";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import { getCollection } from "astro:content";
-import FormattedDate from "../components/FormattedDate.astro";
-
-const posts = (await getCollection("blog"))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 2);
+import Layout from '@/layouts/Layout.astro';
+import Head from '@/components/Head.astro';
+import { Picture,Image } from 'astro:assets';
+import blur from '/src/assets/img/bg.svg';
+import cover from '/src/assets/img/dev.jpg';
+import Button from '@/components/Button.astro';
 ---
+<html lang='en'>
+  <Head title="AngelNext" /> 
+	<Layout>
+		<section
+			class='grid gap-x-10 gap-y-10 lg:gap-y-0 place-content-center content-center lg:grid-flow-col lg:auto-cols-max lg:mt-[10rem] 2xl:mt-[15rem] mb-[5rem] px-3 lg:px-0 h-full text-white'>
+			<Image
+			src={blur}
+			class='fixed blur-[100px] top-0 bottom-0 left-0 right-0 m-auto h-full w-full object-cover object-center z-[-1]'
+			alt='blur background'
+		/>
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <style>
-      a {
-        text-decoration: none;
-      }
+			<div
+				class='blur-bg rounded-xl p-4 lg:p-10 mt-[8rem] xs:mt-[10rem] sm:mt-[12rem] md:mt-[10rem] lg:mt-0 w-full max-w-[600px]'>
+				<div>
+					<h1
+						class='text-7xl lg:text-9xl font-black bg-clip-text text-transparent bg-gradient-to-r from-primary-0 to-accent-0'>
+						Welcome!
+					</h1>
+				</div>
 
-      h1 {
-        text-align: center;
-        padding: 20px 0;
-      }
-
-      ul {
-        display: flex;
-        flex-direction: column;
-        gap: 3em;
-        list-style-type: none;
-      }
-
-      ul li {
-        width: calc(90% - 1rem);
-      }
-
-      ul li * {
-        text-decoration: none;
-      }
-    </style>
-
-    <Header title={SITE_TITLE} />
-    <main>
-      <h1>Hello, World!</h1>
-      <p>
-        Welcome to <a href="/">my page</a>!
-      </p>
-      <p>
-        You can read <a href="/blog/about">about me</a> or read some <a
-          href="/blog">blog posts</a
-        >
-      </p>
-      <p>
-        Have fun! If you want to contact me for business, you can do so sending
-        an <a
-          href="mailto:%63%6f%6e%74%61%63%74%40%61%6e%67%65%6c%6e%65%78%74%2e%64%65%76"
-          >email</a
-        > or talk to me on <a
-          href="https://discord.com/users/807705107852558386">Discord</a
-        > for anything else.
-      </p>
-      <p>Here you have my latest blog posts:</p>
-      <br />
-      <hr />
-      <br />
-      <section>
-        <ul>
-          {
-            posts.map((post) => (
-              <li>
-                <a href={`/blog/${post.slug}/`}>
-                  <Image
-                    width={720}
-                    height={360}
-                    src={post.data.heroImage}
-                    alt={post.data.title}
-                  />
-                  <h2 class="title">{post.data.title}</h2>
-                  <p class="date">
-                    <FormattedDate date={post.data.pubDate} />
-                  </p>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-    </main>
-    <Footer />
-  </body>
+				<div class='text-xl font-light lg:max-w-6xl mt-5'>
+					<blockquote>
+						Here, you can learn about me, read my blog, and familiarize yourself
+						with my work. I have worked in multiple open source projects, I started developing Discord bots, and continued learning and developing more!
+            <br><br>
+            Some of my projects features projects are rubiks, chord, etc...
+					</blockquote>
+				</div>
+			</div>
+			<div>
+				<div
+					class='self-start blur-bg rounded-xl p-4 lg:p-10 w-full max-w-[400px]'>
+					<Picture
+						src={cover}
+						class='mx-auto object-cover rounded-xl'
+						alt='cover'
+						formats={['avif', 'webp']}
+					/>
+					<p class='text-xl font-light tracking-wide mt-5'>
+						You can find this site on GitHub, I'm developing it for my
+						portfolio, as well as for blogging.
+					</p>
+					<div class='mt-5'>
+						<Button
+							text='Check out'
+							link='https://github.com/angelnext/angelnext.dev'
+						/>
+					</div>
+				</div>
+				<div
+					class='mt-5 flex justify-between items-center self-start blur-bg rounded-xl p-4 lg:p-10 w-full max-w-[400px]'>
+					<h3
+						class='text-2xl font-light text-white'>
+						Cool articles
+					</h3><Button
+						text='Read blog'
+						link='/blog'
+						target='_self'
+					/>
+				</div>
+			</div>
+		</section>
+	</Layout>
 </html>

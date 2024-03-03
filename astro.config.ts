@@ -1,10 +1,14 @@
-import { defineConfig } from "astro/config";
+import { defineConfig } from 'astro/config';
+import tailwind from "@astrojs/tailwind";
+
 import mdx from "@astrojs/mdx";
-import sitemap from "@astrojs/sitemap";
-import prefetch from "@astrojs/prefetch";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://angelnext.dev/",
-  integrations: [mdx(), sitemap(), prefetch()],
+  integrations: [tailwind(), mdx()],
+  site: 'https://vratskyi.github.io',
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'viewport'
+  }
 });
